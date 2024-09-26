@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <style>
+       body{
+        background-image: url("images/jungle.jpg");
+        background-size: cover;
+       }
+       #d1{
+        display: flex;
+       }
+       .c1{
+        flex: 50%;
+        font-size: 40px;
+        color: white;
+
+       }
+       .c2{
+        flex: 50%;
+        font-size: 40px;
+        color: white;
+        text-align: right;
+       }
+       #img1{
+        width: 100px;
+        height: 100px;
+       border-radius: 50%;
+       background-color:parent;
+       position: absolute;
+       left: 700px;
+       mix-blend-mode:multiply;
+       opacity: 1;
+       top: 300px;
+       }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div id="t1" class="c1">Score:0</div>
+        <div id="t2" class="c2">Time left:60</div>
+    </div>
+    <img onclick="fun1()" id="img1"src="images/bee1.jpg" alt="">
+    <script > 
+    var a=0,tm=60;
+        function fun1(){
+            if(tm!=0){
+                a++
+            }
+               
+                document.getElementById("t1").innerHTML="Score:"+a;
+        }
+        function fun2(){
+            tm--;
+            if(tm==0){
+                clearInterval(c);
+                clearInterval(d);
+                alert("Your Time Over \n Your Score"+a);
+
+            }
+            document.getElementById("t2").innerHTML="Time left:"+tm;
+
+        }
+        function fun3(){
+            var tp=parseInt(Math.random()*700);
+            var lt=parseInt(Math.random()*300);
+
+            document.getElementById("img1").style.left=tp+"px";
+            document.getElementById("img1").style.top=lt+"px";
+        }
+     var c=   setInterval("fun2()",1000);
+     var d=   setInterval("fun3()",1000);
+
+    </script>
+</body>
+</html>
